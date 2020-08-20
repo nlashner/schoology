@@ -14,8 +14,8 @@ app.get('/search', function (req, res) {
   let searchTerm = req.query.value
   let results = []
   for(let i = 0; i < states.length; i++){
-    let state = states[i].toLowerCase()
-    if(state.startsWith(searchTerm.toLowerCase())){
+    let state = states[i]
+    if(state.toLowerCase().startsWith(searchTerm.toLowerCase())){
       results.push(state)
     }
   }

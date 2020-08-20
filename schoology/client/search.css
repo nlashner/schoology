@@ -1,0 +1,22 @@
+.searchContainer{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchBar{
+  width: 200px
+}
+
+.dropdown{
+  background-color: white;
+  color: #00171F;
+  margin: 10px;
+  width: 200px
+}
+
+.state{
+  text-align: left;
+  padding: 5px 10px;
+}

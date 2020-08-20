@@ -1,9 +1,10 @@
 import React from 'react'
+import Search from './Search'
 
 const App = () => {
   return (
     <div>
-      <h1>pingello</h1>
+      <Search />
     </div>
   )
 }
