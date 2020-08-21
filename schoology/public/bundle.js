@@ -187,7 +187,7 @@ var Search = /*#__PURE__*/function (_Component) {
               case 0:
                 searchQuery = event.target.value;
                 _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/search?value=' + searchQuery);
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/search?value=' + searchQuery);
 
               case 3:
                 _yield$axios$get = _context.sent;

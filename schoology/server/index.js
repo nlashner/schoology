@@ -10,7 +10,7 @@ app.get('/api/states', function (req, res) {
   res.json(states)
 })
 
-app.get('/search', function (req, res) {
+app.get('/api/search', function (req, res) {
   let searchTerm = req.query.value
   let results = []
   for(let i = 0; i < states.length; i++){

@@ -14,7 +14,7 @@ class Search extends Component {
 
    async handleChange(event){
     let searchQuery = event.target.value
-    const {data} =  await axios.get('/search?value=' + searchQuery)
+    const {data} =  await axios.get('/api/search?value=' + searchQuery)
     if(data.length >= 51){
       this.setState({
         searchResults: []
