@@ -128,6 +128,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_search_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -169,9 +171,11 @@ var Search = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this);
     _this.state = {
+      searchValue: '',
       searchResults: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -185,11 +189,12 @@ var Search = /*#__PURE__*/function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                this.setState(_defineProperty({}, event.target.name, event.target.value));
                 searchQuery = event.target.value;
-                _context.next = 3;
+                _context.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/search?value=' + searchQuery);
 
-              case 3:
+              case 4:
                 _yield$axios$get = _context.sent;
                 data = _yield$axios$get.data;
 
@@ -203,7 +208,7 @@ var Search = /*#__PURE__*/function (_Component) {
                   });
                 }
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -218,21 +223,35 @@ var Search = /*#__PURE__*/function (_Component) {
       return handleChange;
     }()
   }, {
+    key: "onClick",
+    value: function onClick(state) {
+      this.setState({
+        searchValue: state
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "searchContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "title"
       }, "Search for a State!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChange,
+        name: "searchValue",
+        value: this.state.searchValue,
         className: "searchBar"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dropdown"
       }, this.state.searchResults.length ? this.state.searchResults.map(function (state, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: idx,
-          className: "state"
+          className: "state",
+          onClick: function onClick() {
+            return _this2.onClick(state);
+          }
         }, state);
       }) : null)));
     }

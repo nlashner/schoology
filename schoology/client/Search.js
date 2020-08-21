@@ -7,17 +7,22 @@ class Search extends Component {
   constructor(){
     super()
     this.state = {
-      searchResults: []
+      searchValue: '',
+      searchResults: [],
     }
     this.handleChange = this.handleChange.bind(this)
+    this.onClick = this.onClick.bind(this)
   }
 
    async handleChange(event){
+    this.setState({
+      [event.target.name]: event.target.value
+    })
     let searchQuery = event.target.value
     const {data} =  await axios.get('/api/search?value=' + searchQuery)
     if(data.length >= 51){
       this.setState({
-        searchResults: []
+        searchResults: [],
       })
     } else {
     this.setState({
@@ -25,16 +30,27 @@ class Search extends Component {
     })}
   }
 
+  onClick(state){
+    this.setState({
+      searchValue: state
+    })
+  }
+
   render() {
     return (
       <div>
         <div className='searchContainer'>
         <h1 className='title'>Search for a State!</h1>
-        <input onChange={this.handleChange} className='searchBar'></input>
+        <input
+          onChange={this.handleChange}
+          name='searchValue'
+          value={this.state.searchValue}
+          className='searchBar'>
+        </input>
         <div className='dropdown'>
         {this.state.searchResults.length ?
           this.state.searchResults.map( (state, idx) => {
-            return <div key ={idx} className='state'>{state}</div>
+            return <div key ={idx} className='state' onClick={() => this.onClick(state)}>{state}</div>
           })
           : null
         }
