@@ -2,7 +2,7 @@
 For my auto-complete project, I created an auto-complete for the different states, which when searched, redirects you to the voter registration site for that particular state.  When you open the site, you can being typing a state into the search bar and a dropdown will show you options of all the states that match the string you've entered, and will update as you continue typing.  If you click on the state in the dropdown, that state will auto-populate in the search bar. I built the backend using Node.js and Express to build the APIs.  The front-end is built using React.
 
 
-## To run the docker container:
+## Docker Container:
 Build the docker container:
 ```
 $ docker build . -t nora-assessment
