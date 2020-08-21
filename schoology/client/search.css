@@ -5,15 +5,23 @@
   align-items: center;
 }
 
+.barContainer{
+  display: flex;
+}
+
 .searchBar{
   width: 200px
+}
+
+.searchButton{
+  width: 70px
 }
 
 .dropdown{
   background-color: white;
   color: #00171F;
   margin: 10px;
-  width: 200px
+  width: 270px;
 }
 
 .state{

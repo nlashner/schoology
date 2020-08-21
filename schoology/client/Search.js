@@ -12,6 +12,7 @@ class Search extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.onClick = this.onClick.bind(this)
+    this.onSearch = this.onSearch.bind(this)
   }
 
    async handleChange(event){
@@ -36,21 +37,37 @@ class Search extends Component {
     })
   }
 
+  onSearch(state){
+    let path = `https://www.vote.org/register-to-vote/${state.toLowerCase()}`
+    window.open(path)
+  }
+
   render() {
     return (
       <div>
         <div className='searchContainer'>
-        <h1 className='title'>Search for a State!</h1>
+        <h1 className='title'>Register to Vote!</h1>
+        <div className='barContainer'>
         <input
           onChange={this.handleChange}
           name='searchValue'
           value={this.state.searchValue}
           className='searchBar'>
         </input>
+        <button
+          type='submit'
+          className='searchButton'
+          onClick={() => this.onSearch(this.state.searchValue)}
+          >
+            Search
+        </button>
+        </div>
         <div className='dropdown'>
         {this.state.searchResults.length ?
           this.state.searchResults.map( (state, idx) => {
-            return <div key ={idx} className='state' onClick={() => this.onClick(state)}>{state}</div>
+            return <div key ={idx} className='state'
+            onClick={() => this.onClick(state)}>{state}
+            </div>
           })
           : null
         }

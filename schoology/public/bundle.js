@@ -176,6 +176,7 @@ var Search = /*#__PURE__*/function (_Component) {
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
+    _this.onSearch = _this.onSearch.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -230,6 +231,12 @@ var Search = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "onSearch",
+    value: function onSearch(state) {
+      var path = "https://www.vote.org/register-to-vote/".concat(state.toLowerCase());
+      window.open(path);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -238,12 +245,20 @@ var Search = /*#__PURE__*/function (_Component) {
         className: "searchContainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "title"
-      }, "Search for a State!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Register to Vote!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "barContainer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.handleChange,
         name: "searchValue",
         value: this.state.searchValue,
         className: "searchBar"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "searchButton",
+        onClick: function onClick() {
+          return _this2.onSearch(_this2.state.searchValue);
+        }
+      }, "Search")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dropdown"
       }, this.state.searchResults.length ? this.state.searchResults.map(function (state, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -11566,7 +11581,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(true);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, ".searchContainer{\n  margin-top: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.searchBar{\n  width: 200px\n}\n\n.dropdown{\n  background-color: white;\n  color: #00171F;\n  margin: 10px;\n  width: 200px\n}\n\n.state{\n  text-align: left;\n  padding: 5px 10px;\n}\n", "",{"version":3,"sources":["search.css"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE;AACF;;AAEA;EACE,uBAAuB;EACvB,cAAc;EACd,YAAY;EACZ;AACF;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB","file":"search.css","sourcesContent":[".searchContainer{\n  margin-top: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.searchBar{\n  width: 200px\n}\n\n.dropdown{\n  background-color: white;\n  color: #00171F;\n  margin: 10px;\n  width: 200px\n}\n\n.state{\n  text-align: left;\n  padding: 5px 10px;\n}\n"]}]);
+___CSS_LOADER_EXPORT___.push([module.i, ".searchContainer{\n  margin-top: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.barContainer{\n  display: flex;\n}\n\n.searchBar{\n  width: 200px\n}\n\n.searchButton{\n  width: 70px\n}\n\n.dropdown{\n  background-color: white;\n  color: #00171F;\n  margin: 10px;\n  width: 270px;\n}\n\n.state{\n  text-align: left;\n  padding: 5px 10px;\n}\n", "",{"version":3,"sources":["search.css"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;AACrB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE;AACF;;AAEA;EACE;AACF;;AAEA;EACE,uBAAuB;EACvB,cAAc;EACd,YAAY;EACZ,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;AACnB","file":"search.css","sourcesContent":[".searchContainer{\n  margin-top: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.barContainer{\n  display: flex;\n}\n\n.searchBar{\n  width: 200px\n}\n\n.searchButton{\n  width: 70px\n}\n\n.dropdown{\n  background-color: white;\n  color: #00171F;\n  margin: 10px;\n  width: 270px;\n}\n\n.state{\n  text-align: left;\n  padding: 5px 10px;\n}\n"]}]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
